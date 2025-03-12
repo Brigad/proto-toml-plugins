@@ -5,17 +5,18 @@ name = "gh"
 type = "cli"
 
 [platform.linux]
-exe-path = "gh_{version}_linux_{arch}/bin/gh"
+archive-prefix = "gh_{version}_linux_{arch}/bin"
 download-file = "gh_{version}_linux_{arch}.tar.gz"
 checksum-file = "gh_{version}_checksums.txt"
 
 [platform.macos]
-exe-path = "gh_{version}_macOS_{arch}/bin/gh"
+archive-prefix = "gh_{version}_macOS_{arch}/bin"
 download-file = "gh_{version}_macOS_{arch}.zip"
 checksum-file = "gh_{version}_checksums.txt"
 
 [platform.windows]
-exe-path = "gh_{version}_windows_{arch}/bin/gh.exe"
+archive-prefix = "gh_{version}_windows_{arch}/bin"
+exe-path = "bin/gh.exe"
 download-file = "gh_{version}_windows_{arch}.zip"
 checksum-file = "gh_{version}_checksums.txt"
 
