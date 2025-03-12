@@ -44,7 +44,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Run tests
-        run: moon ci --color
+        run: moon ci --color --concurrency 1
 
       - name: Prettify test outputs
         uses: appthrust/moon-ci-retrospect@v1
