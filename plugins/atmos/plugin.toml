@@ -1,7 +1,7 @@
 # A proto TOML plugin for Atmos:
 # https://moonrepo.dev/docs/proto/toml-plugin
 
-name = "chainsaw"
+name = "atmos"
 type = "cli"
 
 [platform.linux]
