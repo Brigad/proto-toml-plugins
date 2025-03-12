@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  tests:
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
 
