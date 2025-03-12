@@ -1,0 +1,20 @@
+{
+  "name": "proto-toml-plugins",
+  "type": "module",
+  "dependencies": {
+    "toml": "3.0.0",
+    "zx": "8.4.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "22.0.0",
+    "@tsconfig/strictest": "2.0.5",
+    "@types/node": "^22.13.10",
+    "tsx": "4.19.3",
+    "typescript": "5.8.2",
+    "vitest": "3.0.8"
+  },
+  "packageManager": "yarn@4.6.0",
+  "engines": {
+    "node": "22.14.0"
+  }
+}

@@ -1,0 +1,31 @@
+# A proto TOML plugin for gh:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "gh"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "gh_{version}_linux_{arch}/bin"
+download-file = "gh_{version}_linux_{arch}.tar.gz"
+checksum-file = "gh_{version}_checksums.txt"
+
+[platform.macos]
+archive-prefix = "gh_{version}_macOS_{arch}/bin"
+download-file = "gh_{version}_macOS_{arch}.zip"
+checksum-file = "gh_{version}_checksums.txt"
+
+[platform.windows]
+archive-prefix = "gh_{version}_windows_{arch}/bin"
+download-file = "gh_{version}_windows_{arch}.zip"
+checksum-file = "gh_{version}_checksums.txt"
+
+[install]
+download-url = "https://github.com/cli/cli/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/cli/cli/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/cli/cli"

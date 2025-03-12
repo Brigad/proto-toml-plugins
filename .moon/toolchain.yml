@@ -1,0 +1,15 @@
+# https://moonrepo.dev/docs/config/toolchain
+$schema: https://moonrepo.dev/schemas/toolchain.json
+
+node:
+  packageManager: yarn
+
+  yarn:
+    version: 4.6.0
+    installArgs:
+      - --immutable
+
+  addEnginesConstraint: true
+  dedupeOnLockfileChange: true
+  dependencyVersionFormat: workspace
+  syncProjectWorkspaceDependencies: true

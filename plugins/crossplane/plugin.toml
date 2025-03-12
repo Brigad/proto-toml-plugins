@@ -1,0 +1,21 @@
+# A proto TOML plugin for Crossplane:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "crossplane"
+type = "cli"
+
+[platform.linux]
+download-file = "linux_{arch}/crank"
+
+[platform.macos]
+download-file = "darwin_{arch}/crank"
+
+[install]
+download-url = "https://releases.crossplane.io/stable/v{version}/bin/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/crossplane/crossplane"

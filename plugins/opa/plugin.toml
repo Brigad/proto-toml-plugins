@@ -1,0 +1,24 @@
+# A proto TOML plugin for OPA:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "opa"
+type = "cli"
+
+[platform.linux]
+download-file = "opa_linux_{arch}_static"
+checksum-file = "opa_linux_{arch}_static.sha256"
+
+[platform.macos]
+download-file = "opa_darwin_{arch}_static"
+checksum-file = "opa_darwin_{arch}_static.sha256"
+
+[install]
+download-url = "https://github.com/open-policy-agent/opa/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/open-policy-agent/opa/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/open-policy-agent/opa"

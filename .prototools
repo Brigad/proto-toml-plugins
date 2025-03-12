@@ -1,0 +1,7 @@
+moon = "1.32.9"
+node = "22.14.0"
+
+[settings]
+auto-clean = true
+auto-install = true
+telemetry = false

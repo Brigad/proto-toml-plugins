@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - name: Linux (arm64)
+            os: depot-ubuntu-24.04-arm
+          - name: Linux (x86_64)
+            os: depot-ubuntu-24.04
+          - name: macOS (arm64)
+            os: depot-macos-14
+          - name: Windows
+            os: depot-windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Moon
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
+          # Disable cache as we want to test the install process
+          cache: false
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests
+        run: moon ci --color
+
+      - name: Prettify test outputs
+        uses: appthrust/moon-ci-retrospect@v1
+        if: success() || failure()
