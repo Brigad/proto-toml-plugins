@@ -1,0 +1,31 @@
+# A proto TOML plugin for Depot:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "depot"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "bin"
+download-file = "depot_{version}_linux_{arch}.tar.gz"
+checksum-file = "depot_{version}_checksums.txt"
+
+[platform.macos]
+archive-prefix = "bin"
+download-file = "depot_{version}_darwin_{arch}.tar.gz"
+checksum-file = "depot_{version}_checksums.txt"
+
+[platform.windows]
+archive-prefix = "bin"
+download-file = "depot_{version}_windows_{arch}.zip"
+checksum-file = "depot_{version}_checksums.txt"
+
+[install]
+download-url = "https://github.com/depot/cli/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/depot/cli/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/depot/cli"

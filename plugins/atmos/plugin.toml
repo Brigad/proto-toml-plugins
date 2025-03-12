@@ -1,0 +1,28 @@
+# A proto TOML plugin for Atmos:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "chainsaw"
+type = "cli"
+
+[platform.linux]
+download-file = "atmos_{version}_linux_{arch}"
+checksum-file = "atmos_{version}_SHA256SUMS"
+
+[platform.macos]
+download-file = "atmos_{version}_darwin_{arch}"
+checksum-file = "atmos_{version}_SHA256SUMS"
+
+[platform.windows]
+download-file = "atmos_{version}_windows_{arch}.exe"
+checksum-file = "atmos_{version}_SHA256SUMS"
+
+[install]
+download-url = "https://github.com/cloudposse/atmos/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/cloudposse/atmos/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/cloudposse/atmos"

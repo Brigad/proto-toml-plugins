@@ -1,0 +1,33 @@
+# A proto TOML plugin for Crossplane:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "up"
+type = "cli"
+
+[platform.linux]
+download-file = "linux_{arch}/up"
+
+[platform.macos]
+download-file = "darwin_{arch}/up"
+
+[install]
+download-url = "https://cli.upbound.io/stable/v{version}/bin/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+# Sadly we didn't have a way to fetch versions, so we just hardcode it
+# otherwise the `proto outdated` command fails.
+#
+# TODO: Best way to fix this is to have a GHA cron job that updates a
+# versions file, and then we can use the `resolve.manifest-url` to fetch
+# the versions file.
+#
+# Versions are available at:
+#   - https://s3-us-west-2.amazonaws.com/public-cli.releases?delimiter=/&prefix=stable/
+#
+
+# https://docs.upbound.io/reference/cli/rel-notes/
+[resolve]
+versions = ["0.38.0"]

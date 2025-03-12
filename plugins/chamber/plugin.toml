@@ -1,0 +1,25 @@
+# A proto TOML plugin for Chamber:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "chamber"
+type = "cli"
+
+[platform.linux]
+download-file = "chamber-v{version}-linux-{arch}"
+
+[platform.macos]
+download-file = "chamber-v{version}-darwin-{arch}"
+
+[platform.windows]
+download-file = "chamber-v{version}-windows-{arch}.exe"
+
+[install]
+checksum-file = "chamber-v{version}.sha256sums"
+download-url = "https://github.com/segmentio/chamber/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/segmentio/chamber"

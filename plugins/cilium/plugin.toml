@@ -1,0 +1,27 @@
+# A proto TOML plugin for Cilium CLI:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "cilium"
+type = "cli"
+
+[platform.linux]
+download-file = "cilium-linux-{arch}.tar.gz"
+checksum-file = "cilium-linux-{arch}.tar.gz.sha256sum"
+
+[platform.macos]
+download-file = "cilium-darwin-{arch}.tar.gz"
+checksum-file = "cilium-darwin-{arch}.tar.gz.sha256sum"
+
+[platform.windows]
+download-file = "cilium-windows-{arch}.zip"
+checksum-file = "cilium-windows-{arch}.zip.sha256sum"
+
+[install]
+download-url = "https://github.com/cilium/cilium-cli/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/cilium/cilium-cli"
