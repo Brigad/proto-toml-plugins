@@ -4,5 +4,6 @@ tasks:
   test:
     command: vitest --run --pool=forks --passWithNoTests
     inputs:
-      - "**/*.ts"
+      - "**/*.tests.ts"
+      - "**/plugin.toml"
     platform: node
