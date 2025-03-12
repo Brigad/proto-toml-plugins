@@ -13,7 +13,7 @@ download-file = "kind-darwin-{arch}"
 checksum-file = "kind-darwin-{arch}.sha256sum"
 
 [platform.windows]
-download-file = "kind-windows-{arch}.exe"
+download-file = "kind-windows-{arch}"
 checksum-file = "kind-windows-{arch}.sha256sum"
 
 [install]
