@@ -1,0 +1,32 @@
+# A proto TOML plugin for OpenTofu:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "terraform-docs"
+type = "cli"
+
+[platform.linux]
+checksum-file = "terraform-docs-v{version}.sha256sum "
+download-file = "terraform-docs-v{version}-{os}-{arch}.tar.gz"
+
+[platform.macos]
+checksum-file = "terraform-docs-v{version}.sha256sum "
+download-file = "terraform-docs-v{version}-darwin-{arch}.tar.gz"
+
+[platform.freebsd]
+checksum-file = "terraform-docs-v{version}.sha256sum "
+download-file = "terraform-docs-v{version}-{os}-{arch}.tar.gz"
+
+[platform.windows]
+checksum-file = "terraform-docs-v{version}.sha256sum "
+download-file = "terraform-docs-v{version}-{os}-{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/terraform-docs/terraform-docs/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/terraform-docs/terraform-docs/releases/download/v{version}/{download_file}"
+
+[install.arch]
+x86_64 = "amd64"
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/terraform-docs/terraform-docs"
