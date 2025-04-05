@@ -17,8 +17,8 @@ download-file = "nomad_{version}_windows_{arch}.zip"
 checksum-file = "nomad_{version}_SHA256SUMS"
 
 [install]
-checksum-url = "https://releases.hashicorp.com/nomad/{version}/{checksum_file}"
 download-url = "https://releases.hashicorp.com/nomad/{version}/{download_file}"
+checksum-url = "https://releases.hashicorp.com/nomad/{version}/{checksum_file}"
 unpack = true
 
 [install.arch]
