@@ -1,0 +1,30 @@
+# A proto TOML plugin for OpenTofu:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "shfmt"
+type = "cli"
+
+[platform.linux]
+download-file = "shfmt_v{version}_{os}_{arch}"
+checksum-file = "sha256sums.txt"
+
+[platform.macos]
+download-file = "shfmt_v{version}_darwin_{arch}"
+checksum-file = "sha256sums.txt"
+
+[platform.windows]
+download-file = "shfmt_v{version}_{os}_{arch}.exe"
+checksum-file = "sha256sums.txt"
+
+[install]
+download-url = "https://github.com/mvdan/sh/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/mvdan/sh/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/mvdan/sh"
