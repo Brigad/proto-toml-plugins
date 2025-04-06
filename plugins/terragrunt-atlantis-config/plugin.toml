@@ -6,19 +6,19 @@ type = "cli"
 
 [platform.linux]
 checksum-file = "SHA256SUMS"
-download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}"
+download-file = "terragrunt-atlantis-config_{version}_{os}_{arch}"
 
 [platform.macos]
 checksum-file = "SHA256SUMS"
-download-file = "transcend-io/terragrunt-atlantis-config_{version}_darwin_{arch}"
+download-file = "terragrunt-atlantis-config_{version}_darwin_{arch}"
 
 [platform.freebsd]
 checksum-file = "SHA256SUMS"
-download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}"
+download-file = "terragrunt-atlantis-config_{version}_{os}_{arch}"
 
 [platform.windows]
 checksum-file = "SHA256SUMS"
-download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}.exe"
+download-file = "terragrunt-atlantis-config_{version}_{os}_{arch}.exe"
 
 [install]
 checksum-url = "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v{version}/{checksum_file}"
