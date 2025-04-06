@@ -1,0 +1,32 @@
+# A proto TOML plugin for OpenTofu:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "terragrunt-atlantis-config"
+type = "cli"
+
+[platform.linux]
+checksum-file = "SHA256SUMS"
+download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}"
+
+[platform.macos]
+checksum-file = "SHA256SUMS"
+download-file = "transcend-io/terragrunt-atlantis-config_{version}_darwin_{arch}"
+
+[platform.freebsd]
+checksum-file = "SHA256SUMS"
+download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}"
+
+[platform.windows]
+checksum-file = "SHA256SUMS"
+download-file = "transcend-io/terragrunt-atlantis-config_{version}_{os}_{arch}.exe"
+
+[install]
+checksum-url = "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v{version}/{download_file}"
+
+[install.arch]
+x86_64 = "amd64"
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/transcend-io/terragrunt-atlantis-config"
