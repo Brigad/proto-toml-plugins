@@ -5,14 +5,17 @@ name = "rover"
 type = "cli"
 
 [platform.linux]
+archive-prefix = "dist"
 download-file = "rover-v{version}-{arch}-unknown-{os}-gnu.tar.gz"
 checksum-file = "sha256sums.txt"
 
 [platform.macos]
+archive-prefix = "dist"
 download-file = "rover-v{version}-{arch}-apple-{os}.tar.gz"
 checksum-file = "sha256sums.txt"
 
 [platform.windows]
+archive-prefix = "dist"
 download-file = "rover-v{version}-{arch}-pc-{os}-msvc.zip"
 checksum-file = "sha256sums.txt"
 
