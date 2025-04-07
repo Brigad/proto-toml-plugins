@@ -5,16 +5,16 @@ name = "rover"
 type = "cli"
 
 [platform.linux]
-download-file = "rover-v{version}-x86_64-unknown-linux-gnu.tar.gz"
-checksum-file = "checksums.txt"
+download-file = "rover-v{version}-{arch}-unknown-{os}-gnu.tar.gz"
+checksum-file = "sha256sums.txt "
 
 [platform.macos]
-download-file = "rover-v{version}-{arch}-apple-darwin.tar.gz"
-checksum-file = "checksums.txt"
+download-file = "rover-v{version}-{arch}-apple-{os}.tar.gz"
+checksum-file = "sha256sums.txt "
 
 [platform.windows]
-download-file = "rover-v{version}-x86_64-pc-windows-msvc.zip"
-checksum-file = "checksums.txt"
+download-file = "rover-v{version}-{arch}-pc-{os}-msvc.zip"
+checksum-file = "sha256sums.txt "
 
 [install]
 download-url = "https://github.com/apollographql/rover/releases/download/v{version}/{download_file}"
