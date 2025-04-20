@@ -18,10 +18,13 @@ jobs:
     permissions:
       # Needed to push changes
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_PAT_TOKEN }}
 
       - name: Setup Moon
         uses: moonrepo/setup-toolchain@v0
@@ -31,9 +34,13 @@ jobs:
       - name: Run update script
         run: node scripts/update-upbound-versions.js
 
-      - name: Commit and push if changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add plugins/upbound/plugin.toml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update upbound versions" && git push)
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: |-
+            chore(upbound): update versions
+          body: |
+            This PR updates the versions of Upbound plugins to the latest available versions.
+          branch: update-upbound-versions
+          assignees: arthur-leclerc
+          reviewers: arthur-leclerc
