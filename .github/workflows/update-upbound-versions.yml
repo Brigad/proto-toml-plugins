@@ -1,0 +1,39 @@
+name: Auto update versions
+
+on:
+  schedule:
+    # Run every day at midnight
+    - cron: 0 0 * * *
+  workflow_dispatch:
+
+jobs:
+  upbound-versions:
+    name: Update Upbound Versions
+    runs-on: depot-ubuntu-24.04
+
+    # Enforce a timeout to avoid wasting time if something goes wrong.
+    # Versions update should not take more than 5 minutes to complete.
+    timeout-minutes: 5
+
+    permissions:
+      # Needed to push changes
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Moon
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
+
+      - name: Run update script
+        run: node scripts/update-upbound-versions.js
+
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add plugins/upbound/plugin.toml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update upbound versions" && git push)
