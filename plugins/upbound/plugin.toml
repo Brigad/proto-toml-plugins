@@ -30,4 +30,4 @@ x86_64 = "amd64"
 
 # https://docs.upbound.io/reference/cli/rel-notes/
 [resolve]
-versions = ["0.38.0"]
+versions = ["0.38.0", "0.38.1"]
