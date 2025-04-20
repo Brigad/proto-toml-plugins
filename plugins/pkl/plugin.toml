@@ -1,0 +1,23 @@
+# A proto TOML plugin for Helm:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "pkl"
+type = "cli"
+
+[platform.linux]
+download-file = "pkl-linux-{arch}"
+
+[platform.macos]
+download-file = "pkl-macos-{arch}"
+
+[platform.windows]
+download-file = "pkl-windows-{arch}.exe"
+
+[install]
+download-url = "https://github.com/apple/pkl/releases/download/{version}/{download_file}"
+
+[install.arch]
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/apple/pkl"
