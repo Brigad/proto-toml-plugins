@@ -17,7 +17,6 @@ download-file = "pkl-windows-{arch}.exe"
 download-url = "https://github.com/apple/pkl/releases/download/{version}/{download_file}"
 
 [install.arch]
-aarch64 = "arm64"
 x86_64 = "amd64"
 
 [resolve]
