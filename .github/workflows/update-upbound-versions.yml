@@ -9,7 +9,7 @@ on:
 jobs:
   upbound-versions:
     name: Update Upbound Versions
-    runs-on: depot-ubuntu-24.04
+    runs-on: ubuntu-24.04
 
     # Enforce a timeout to avoid wasting time if something goes wrong.
     # Versions update should not take more than 5 minutes to complete.
