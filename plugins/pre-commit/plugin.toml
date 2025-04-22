@@ -1,0 +1,23 @@
+# A proto TOML plugin for kubens:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "pre-commit"
+type = "cli"
+
+[platform.linux]
+download-file = "pre-commit-{version}.pyz"
+
+[platform.macos]
+download-file = "pre-commit-{version}.pyz"
+
+[platform.windows]
+download-file = "pre-commit-{version}.pyz"
+
+[install]
+download-url = "https://github.com/pre-commit/pre-commit/releases/download/v{version}/{download_file}"
+
+[install.primary]
+parent-exe-name = "python3"
+
+[resolve]
+git-url = "https://github.com/pre-commit/pre-commit"
