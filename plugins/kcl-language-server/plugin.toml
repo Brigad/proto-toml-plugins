@@ -1,0 +1,30 @@
+# A proto TOML plugin for KCL:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "kcl-language-server"
+type = "cli"
+
+[platform.linux]
+download-file = "kclvm-v{version}-linux-{arch}.tar.gz"
+archive-prefix = "kclvm"
+exe-path = "bin/kcl-language-server"
+
+[platform.macos]
+download-file = "kclvm-v{version}-darwin-{arch}.tar.gz"
+archive-prefix = "kclvm"
+exe-path = "bin/kcl-language-server"
+
+[platform.windows]
+download-file = "kclvm-v{version}-windows.zip"
+archive-prefix = "kclvm"
+exe-path = "bin/kcl-language-server.exe"
+
+[install]
+download-url = "https://github.com/kcl-lang/kcl/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/kcl-lang/kcl"
