@@ -1,0 +1,29 @@
+# A proto TOML plugin for Packer:
+# https://moonrepo.dev/docs/proto/toml-plugin
+
+name = "packer"
+type = "cli"
+
+[platform.linux]
+download-file = "packer_{version}_linux_{arch}.zip"
+checksum-file = "packer_{version}_SHA256SUMS"
+
+[platform.macos]
+download-file = "packer_{version}_darwin_{arch}.zip"
+checksum-file = "packer_{version}_SHA256SUMS"
+
+[platform.windows]
+download-file = "packer_{version}_windows_{arch}.zip"
+checksum-file = "packer_{version}_SHA256SUMS"
+
+[install]
+download-url = "https://releases.hashicorp.com/packer/{version}/{download_file}"
+checksum-url = "https://releases.hashicorp.com/packer/{version}/{checksum_file}"
+unpack = true
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/hashicorp/packer"
