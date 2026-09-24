@@ -1,0 +1,29 @@
+# A proto TOML plugin for gitleaks:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+
+name = "gitleaks"
+type = "cli"
+
+[platform.linux]
+checksum-file = "gitleaks_{version}_checksums.txt"
+download-file = "gitleaks_{version}_{os}_{arch}.tar.gz"
+
+[platform.macos]
+checksum-file = "gitleaks_{version}_checksums.txt"
+download-file = "gitleaks_{version}_darwin_{arch}.tar.gz"
+
+[platform.windows]
+checksum-file = "gitleaks_{version}_checksums.txt"
+download-file = "gitleaks_{version}_{os}_{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/gitleaks/gitleaks/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/gitleaks/gitleaks/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "x32"
+x86_64 = "x64"
+
+[resolve]
+git-url = "https://github.com/gitleaks/gitleaks"

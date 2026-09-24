@@ -1,0 +1,29 @@
+# A proto TOML plugin for hadolint:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+#
+# Asset names and the single checksums file match releases from v2.15.0 onwards.
+
+name = "hadolint"
+type = "cli"
+
+[platform.linux]
+checksum-file = "checksums.sha256"
+download-file = "hadolint-{os}-{arch}"
+
+[platform.macos]
+checksum-file = "checksums.sha256"
+download-file = "hadolint-{os}-{arch}"
+
+[platform.windows]
+checksum-file = "checksums.sha256"
+download-file = "hadolint-{os}-{arch}.exe"
+
+[install]
+checksum-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/hadolint/hadolint/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+
+[resolve]
+git-url = "https://github.com/hadolint/hadolint"

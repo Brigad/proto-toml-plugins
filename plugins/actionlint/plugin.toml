@@ -1,0 +1,33 @@
+# A proto TOML plugin for actionlint:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+
+name = "actionlint"
+type = "cli"
+
+[platform.linux]
+checksum-file = "actionlint_{version}_checksums.txt"
+download-file = "actionlint_{version}_{os}_{arch}.tar.gz"
+
+[platform.macos]
+checksum-file = "actionlint_{version}_checksums.txt"
+download-file = "actionlint_{version}_darwin_{arch}.tar.gz"
+
+[platform.freebsd]
+checksum-file = "actionlint_{version}_checksums.txt"
+download-file = "actionlint_{version}_{os}_{arch}.tar.gz"
+
+[platform.windows]
+checksum-file = "actionlint_{version}_checksums.txt"
+download-file = "actionlint_{version}_{os}_{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/rhysd/actionlint/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/rhysd/actionlint/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/rhysd/actionlint"

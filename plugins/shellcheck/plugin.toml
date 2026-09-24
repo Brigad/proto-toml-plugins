@@ -1,0 +1,24 @@
+# A proto TOML plugin for ShellCheck:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+#
+# Releases ship no checksum file, so checksum verification is not configured.
+
+name = "shellcheck"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "shellcheck-v{version}"
+download-file = "shellcheck-v{version}.{os}.{arch}.tar.xz"
+
+[platform.macos]
+archive-prefix = "shellcheck-v{version}"
+download-file = "shellcheck-v{version}.darwin.{arch}.tar.xz"
+
+[platform.windows]
+download-file = "shellcheck-v{version}.zip"
+
+[install]
+download-url = "https://github.com/koalaman/shellcheck/releases/download/v{version}/{download_file}"
+
+[resolve]
+git-url = "https://github.com/koalaman/shellcheck"
