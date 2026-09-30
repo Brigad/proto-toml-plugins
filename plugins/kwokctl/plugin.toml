@@ -1,0 +1,26 @@
+# A proto TOML plugin for kwokctl, the CLI of KWOK:
+# https://moonrepo.dev/docs/proto/toml-plugin
+#
+# The release assets are bare binaries with no checksum file.
+
+name = "kwokctl"
+type = "cli"
+
+[platform.linux]
+download-file = "kwokctl-linux-{arch}"
+
+[platform.macos]
+download-file = "kwokctl-darwin-{arch}"
+
+[platform.windows]
+download-file = "kwokctl-windows-{arch}.exe"
+
+[install]
+download-url = "https://github.com/kubernetes-sigs/kwok/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/kubernetes-sigs/kwok"
