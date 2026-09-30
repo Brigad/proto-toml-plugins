@@ -1,0 +1,28 @@
+# A proto TOML plugin for Flux Schema:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+
+name = "flux-schema"
+type = "cli"
+
+[platform.linux]
+checksum-file = "flux-schema_{version}_checksums.txt"
+download-file = "flux-schema_{version}_{os}_{arch}.tar.gz"
+
+[platform.macos]
+checksum-file = "flux-schema_{version}_checksums.txt"
+download-file = "flux-schema_{version}_darwin_{arch}.tar.gz"
+
+[platform.windows]
+checksum-file = "flux-schema_{version}_checksums.txt"
+download-file = "flux-schema_{version}_{os}_{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/fluxcd/flux-schema/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/fluxcd/flux-schema/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/fluxcd/flux-schema"
