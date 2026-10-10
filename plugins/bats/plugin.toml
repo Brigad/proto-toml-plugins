@@ -1,0 +1,25 @@
+# A proto TOML plugin for Bats, the Bash Automated Testing System:
+# https://moonrepo.dev/docs/proto/toml-plugin
+#
+# bats-core publishes no release asset, so the plugin downloads the source
+# archive of the tag, which has no checksum to verify. Bats runs on Linux and
+# macOS only.
+
+name = "bats"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "bats-core-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "bin/bats"
+
+[platform.macos]
+archive-prefix = "bats-core-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "bin/bats"
+
+[install]
+download-url = "https://github.com/bats-core/bats-core/archive/refs/tags/{download_file}"
+
+[resolve]
+git-url = "https://github.com/bats-core/bats-core"
