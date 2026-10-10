@@ -1,0 +1,40 @@
+# A proto TOML plugin for helm-unittest:
+# https://moonrepo.dev/docs/proto/toml-plugin
+#
+# Each release archive holds the Helm plugin: its manifest and a standalone
+# binary, untt-<os>-<arch>, which runs without Helm. proto installs that binary
+# as helm-unittest.
+#
+# One checksum file, helm-unittest-checksum.sha, covers every archive. proto
+# derives the algorithm from the extension of the file it saves, and knows
+# .sha256 but not .sha, so the file is saved under the name checksum-file gives
+# and downloaded from its real name.
+
+name = "helm-unittest"
+type = "cli"
+
+[platform.linux]
+download-file = "helm-unittest-linux-{arch}-{version}.tgz"
+checksum-file = "helm-unittest-checksum.sha256"
+exe-path = "untt-linux-{arch}"
+
+[platform.macos]
+download-file = "helm-unittest-macos-{arch}-{version}.tgz"
+checksum-file = "helm-unittest-checksum.sha256"
+exe-path = "untt-macos-{arch}"
+
+[platform.windows]
+download-file = "helm-unittest-windows-{arch}-{version}.tgz"
+checksum-file = "helm-unittest-checksum.sha256"
+exe-path = "untt-windows-{arch}.exe"
+
+[install]
+download-url = "https://github.com/helm-unittest/helm-unittest/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/helm-unittest/helm-unittest/releases/download/v{version}/helm-unittest-checksum.sha"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/helm-unittest/helm-unittest"
