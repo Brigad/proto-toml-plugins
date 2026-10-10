@@ -4,7 +4,7 @@ import {run} from "../../testkit.js";
 run({
   name: "bats-support",
   afterInstall: async ($) => {
-    const path = (await $`proto --reporter text bin bats-support`).stdout.trim();
+    const path = (await $`proto bin bats-support`).stdout.trim();
     await $`test -f ${path}`;
   },
 });
