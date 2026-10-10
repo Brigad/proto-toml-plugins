@@ -1,0 +1,28 @@
+# A proto TOML plugin for bats-assert, a library that Bats tests load:
+# https://moonrepo.dev/docs/proto/toml-plugin
+#
+# The library has no executable. proto installs it without a bin or a shim,
+# and a test loads the file `proto bin bats-assert` prints, its load.bash.
+# bats-assert publishes no release asset, so the plugin downloads the source
+# archive of the tag, which has no checksum to verify.
+
+name = "bats-assert"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "bats-assert-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "load.bash"
+
+[platform.macos]
+archive-prefix = "bats-assert-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "load.bash"
+
+[install]
+download-url = "https://github.com/bats-core/bats-assert/archive/refs/tags/{download_file}"
+no-bin = true
+no-shim = true
+
+[resolve]
+git-url = "https://github.com/bats-core/bats-assert"

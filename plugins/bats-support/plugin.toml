@@ -1,0 +1,28 @@
+# A proto TOML plugin for bats-support, a library that Bats tests load:
+# https://moonrepo.dev/docs/proto/toml-plugin
+#
+# The library has no executable. proto installs it without a bin or a shim,
+# and a test loads the file `proto bin bats-support` prints, its load.bash.
+# bats-support publishes no release asset, so the plugin downloads the source
+# archive of the tag, which has no checksum to verify.
+
+name = "bats-support"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "bats-support-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "load.bash"
+
+[platform.macos]
+archive-prefix = "bats-support-{version}"
+download-file = "v{version}.tar.gz"
+exe-path = "load.bash"
+
+[install]
+download-url = "https://github.com/bats-core/bats-support/archive/refs/tags/{download_file}"
+no-bin = true
+no-shim = true
+
+[resolve]
+git-url = "https://github.com/bats-core/bats-support"
