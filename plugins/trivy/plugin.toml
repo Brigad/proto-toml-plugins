@@ -1,0 +1,28 @@
+# A proto TOML plugin for Trivy:
+# https://moonrepo.dev/docs/proto/non-wasm-plugin
+
+name = "trivy"
+type = "cli"
+
+[platform.linux]
+checksum-file = "trivy_{version}_checksums.txt"
+download-file = "trivy_{version}_Linux-{arch}.tar.gz"
+
+[platform.macos]
+checksum-file = "trivy_{version}_checksums.txt"
+download-file = "trivy_{version}_macOS-{arch}.tar.gz"
+
+[platform.windows]
+checksum-file = "trivy_{version}_checksums.txt"
+download-file = "trivy_{version}_windows-{arch}.zip"
+
+[install]
+checksum-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/aquasecurity/trivy/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "ARM64"
+x86_64 = "64bit"
+
+[resolve]
+git-url = "https://github.com/aquasecurity/trivy"
