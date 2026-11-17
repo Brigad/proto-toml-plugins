@@ -5,12 +5,12 @@ name = "opa"
 type = "cli"
 
 [platform.linux]
-download-file = "opa_linux_{arch}_static"
-checksum-file = "opa_linux_{arch}_static.sha256"
+download-file = "opa_linux_{arch}"
+checksum-file = "opa_linux_{arch}.sha256"
 
 [platform.macos]
-download-file = "opa_darwin_{arch}_static"
-checksum-file = "opa_darwin_{arch}_static.sha256"
+download-file = "opa_darwin_{arch}"
+checksum-file = "opa_darwin_{arch}.sha256"
 
 [install]
 download-url = "https://github.com/open-policy-agent/opa/releases/download/v{version}/{download_file}"
